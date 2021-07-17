@@ -1,0 +1,97 @@
+import React, {useState} from 'react';
+
+import Nav from './Nav';
+import { NavLink } from 'react-router-dom';
+
+
+function Education(props){
+
+    const [edudetail, edusetDetail]= useState({
+        university:'',
+        from:'',
+        to:'',
+        cgpa:'',
+        city:''
+    });
+
+    const [newedudetail, newedusetDetail]= useState({
+        university:'',
+        from:'',
+        to:'',
+        cgpa:'',
+        city:''
+    });
+
+    function inputEvent(event){
+        const name = event.target.name;
+        const value = event.target.value;
+
+
+        newedusetDetail((prevalue) => {
+            return{
+                ...prevalue,
+                [name]:value,
+            }
+                
+        });
+    }
+
+    function submit(event){
+        event.preventDefault();
+
+        edusetDetail(newedudetail);
+        alert("Education Details Saved");
+    }
+
+    props.setedu(edudetail);
+
+    return(
+    <div className="conta">
+    <div>
+    <Nav />
+    </div>
+    <div>
+        <div className="form container col-md-5 shadow-lg p-3 mb-5 bg-body rounded">
+
+        <h3 className="black shadow-lg p-3 mb-5 bg-body rounded">Education Details</h3>
+        <form className = "shadow-lg p-3 mb-5 bg-body rounded">
+            <div className="mb-3">
+                <label className="form-label">University Name</label>
+                <input type="text" className="form-control" name="university" onChange={inputEvent}/>
+               
+            </div>
+            <div className="mb-2" style={{ display:"flex"}}>
+                <label className="form-label">From</label>
+                {/* <input type="date" className="form-control"/> */}
+                <label className="form-label" style={{marginLeft:"242px"}}>To</label>
+                {/* <input type="date" className="form-control"/> */}
+            </div>
+            <div className="mb-3" style={{ display:"flex"}}>
+                {/* <label className="form-label">From</label> */}
+                <input type="date" className="form-control" name="from" onChange={inputEvent}/>
+                {/* <label className="form-label">To</label> */}
+                <input type="date" className="form-control" name="to" onChange={inputEvent}/>
+            </div>
+            
+                
+            
+            <div className="mb-3">
+                <label className="form-label">CGPA</label>
+                <input type="number" className="form-control" name="cgpa" onChange={inputEvent}/>
+            </div>
+            <div className="mb-3">
+                <label className="form-label">City</label>
+                <input type="text" className="form-control" name="city" onChange={inputEvent}/>
+            </div>
+            <div className="cent">
+            <button type="submit" onClick={submit} className="btn btn-success">Save</button>
+            <NavLink to="/project"><button type="submit" className="btn btn-primary">Next</button></NavLink>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+    );
+}
+
+export default Education;
