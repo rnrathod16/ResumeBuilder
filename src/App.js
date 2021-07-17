@@ -5,6 +5,8 @@ import About from './About';
 import Education from './Education';
 import Project from './Project';
 import Details from './Details';
+import Form from './Form';
+
 
 function App() {
 
@@ -38,7 +40,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-      <Route exact path="/">
+      <Route exact path="/about">
       <About setpers={setpers}/>
         </Route>
         <Route exact path="/education">
@@ -49,6 +51,9 @@ function App() {
         </Route>
         <Route exact path="/detail">
         <Details  firstname={pers.firstname} lastname={pers.lastname} email={pers.email} mobile={pers.mobile} university={edu.university} from={edu.from} to={edu.to} cgpa={edu.cgpa} city={edu.city} pname={pro.pname} fromp={pro.from} top={pro.to} mentor={pro.mentor} disc={pro.disc}/>
+        </Route>
+        <Route exact path="/">
+          <Form />
         </Route>
       </Switch>
     </BrowserRouter>
