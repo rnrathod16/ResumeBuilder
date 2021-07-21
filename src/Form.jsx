@@ -6,6 +6,9 @@ import { Link} from 'react-router-dom';
 import './Form.css';
 
 function Form(){
+
+    
+
     return(
         <>
         <body style={{ backgroundImage: `url(${back})` }} >
@@ -17,12 +20,12 @@ function Form(){
                             <img src={bg} alt="bg" />
                         </div>
                         <div className="login-content" >
-                            <form className="fo" action="/about">
-                                <img src={avtar} alt="Avatar" />
-                                <h2 > Welcome </h2>
-                                <div className="input-div one" >
+                            <form className="fo container-fluid col-md-9 shadow-lg p-3 mb-2 pt-2 bg-body rounded" action="/about">
+                                <img src={avtar} alt="Avatar" style={{marginTop:`45px`}}/>
+                                <h2 style={{color:`#031bf1`}}> Welcome </h2>
+                                <div className="input-div one">
                                     <div className="i" >
-                                        < i className="fas fa-user" > </i>
+                                        <i className="fas fa-user" > </i>
                                     </div> <div className="div" >
 
                                         <input type="text" className="input" placeholder="Username" />
@@ -33,12 +36,12 @@ function Form(){
                                         <i className="fas fa-lock" > </i>
                                     </div> <div className="div" >
 
-                                        <input type="password" className="input" placeholder="Password" />
+                                        <input type="password" className="input mb-4" placeholder="Password" />
                                     </div>
                                 </div>
-                                < a href="/" > Forgot Password ? </a>
+                                <a href="/" className="mt-3" style={{textDecoration:`none`}}> Forgot Password ? </a>
                                 <input type="submit" className="bt" value="Login" />
-                               <Link to="/New" className="cnt" >SIGNUP</Link>
+                               <Link to="/" className="cnt" style={{textDecoration:`none`, marginBottom:`40px`}}>SIGNUP</Link>
                                
                             </form>
                         </div>
@@ -50,4 +53,4 @@ function Form(){
     );
 }
 
-                    export default Form;
+export default Form;
