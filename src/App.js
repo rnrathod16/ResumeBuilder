@@ -6,6 +6,7 @@ import Education from './Education';
 import Project from './Project';
 import Details from './Details';
 import Form from './Form';
+import New from './New';
 
 
 function App() {
@@ -53,6 +54,9 @@ function App() {
         <Details  firstname={pers.firstname} lastname={pers.lastname} email={pers.email} mobile={pers.mobile} university={edu.university} from={edu.from} to={edu.to} cgpa={edu.cgpa} city={edu.city} pname={pro.pname} fromp={pro.from} top={pro.to} mentor={pro.mentor} disc={pro.disc}/>
         </Route>
         <Route exact path="/">
+          <New />
+        </Route>
+        <Route exact path="/signin">
           <Form />
         </Route>
       </Switch>
