@@ -3,16 +3,19 @@ import './App.css';
 import back2 from './img/back2.png'
 import th from './img/th.svg'
 import avtar from './img/avtar.svg'
-import {Link} from 'react-router-dom'
+import {NavLink, useHistory} from 'react-router-dom'
 
 
 
 function New(){
 
+    const history = useHistory();
     const [fullName, setFullName]= useState({
         fname:"",
         email:"",
-        uname:""
+        uname:"",
+        pass:"",
+        cpass:""
     });
 
     const inputEvent=(event)=>{
@@ -31,9 +34,41 @@ function New(){
 
     };
 
-    const onSubmits = (event)=>{
-        event.preventDefault();
-    };
+    const postdata = async (e)=>{
+        e.preventDefault();
+
+        const {fname, email, uname, pass, cpass} = fullName;
+
+        const res = await fetch("/",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                name:fname, email:email, username:uname, password:pass, cpassword:cpass
+            })
+        })
+
+        
+
+        if(res.status === 422){
+            window.alert("User Already Exists"); 
+        }else if(pass!==cpass){
+            window.alert("Passwords Do not Match");
+            console.log("Passwords Do not Match");
+        }else if(!fname|| !email|| !uname|| !pass|| !cpass){
+
+            window.alert("Please fill all the details");
+            console.log("Please fill all the details");
+
+        }else{
+            window.alert("Registration Successfull");
+            console.log("Registration Successfull"); 
+
+            history.push("/signin");
+        }
+
+    }
 
     return(
 <>
@@ -46,7 +81,7 @@ function New(){
         <img src={th} alt="bg"/>
     </div>
     <div className="login-content">
-        <form  action="/signin" className="container-fluid col-md-9 shadow-lg p-3 mb-2 pt-2 bg-body rounded">
+        <form method="POST" className="container-fluid col-md-9 shadow-lg p-3 mb-2 pt-2 bg-body rounded">
             <img src={avtar} alt="avtar"/>
             <h2 style={{color:`#031bf1`}}>Registration</h2>
             <div className="input-div one">
@@ -82,7 +117,7 @@ function New(){
                 </div>
                 <div className="div">
 
-                    <input type="password" className="input" placeholder="Password"/>
+                    <input type="password" className="input" name="pass" placeholder="Password" onChange={inputEvent}/>
                 </div>
             </div>
             <div className="input-div pass">
@@ -91,12 +126,12 @@ function New(){
                 </div>
                 <div className="div">
 
-                    <input type="password" className="input b" placeholder="Conform Password"/>
+                    <input type="password" className="input b" name="cpass" placeholder="Conform Password" onChange={inputEvent}/>
                 </div>
             </div>
             
-            <input type="submit" className="bt" value="SIGN UP"/>
-            <div style={{ color: `rgb(129, 129, 129)`}}>Already have an Account ? <Link to="/signin" className="cnt dw" style={{textDecoration:`none`}}>LOGIN</Link></div>
+            <input type="submit" onClick={postdata} className="bt" value="SIGN UP"/>
+            <div style={{ color: `rgb(129, 129, 129)`}}>Already have an Account ? <NavLink to="/signin" className="cnt dw" style={{textDecoration:`none`}}>LOGIN</NavLink></div>
         </form>
     </div>
 </div>
