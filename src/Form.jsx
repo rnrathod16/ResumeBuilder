@@ -5,7 +5,9 @@ import avtar from './img/avtar.svg'
 import { NavLink, useHistory} from 'react-router-dom';
 import './Form.css';
 
-function Form(){
+function Form(props){
+
+    
     const history=useHistory();
     const [user,setUser]= useState({
         username:"",
@@ -27,6 +29,8 @@ function Form(){
     };
 
     const submiteve = async (e)=>{
+
+        
         e.preventDefault();
 
         const {username, password} = user;
@@ -41,7 +45,7 @@ function Form(){
             })
         })
 
-        
+        const data = await res.json();
 
         if(res.status === 422){
             window.alert("Invalid Credentials"); 
@@ -51,8 +55,15 @@ function Form(){
             console.log("Please fill all the details");
 
         }else{ 
+            // console.log(data.message);
+            props.setcid(data.message);
+            history.push('/about');
 
-            history.push("/about");
+            // this.props.history.push({
+            //     pathname: '/template',
+            //     search: '?query=abc',
+            //     state: { detail: response.data }
+            //   })
         }
 
     }
@@ -71,7 +82,7 @@ function Form(){
                         </div>
                         <div className="login-content" >
                             <form method="POST" className="fo container-fluid col-md-9 shadow-lg p-3 mb-2 pt-2 bg-body rounded">
-                                <img src={avtar} alt="Avatar" style={{marginTop:`45px`}}/>
+                                <img src={avtar}  alt="Avatar" style={{marginTop:`45px`}}/>
                                 <h2 style={{color:`#031bf1`}}> Welcome </h2>
                                 <div className="input-div one">
                                     <div className="i" >
@@ -104,3 +115,4 @@ function Form(){
 }
 
 export default Form;
+
