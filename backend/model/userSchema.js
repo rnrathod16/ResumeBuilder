@@ -16,11 +16,68 @@ const userSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        required: true,
+        required: true
     },
     cpassword: {
         type: String,
-        required: true,
+        required: true
+    },
+    dfname: {
+        type: String,
+
+    },
+    dlname: {
+        type: String,
+
+    },
+    dmail: {
+        type: String,
+
+    },
+    dmobile: {
+        type: Number,
+
+    },
+    duniname: {
+        type: String,
+
+    },
+    dfromuni: {
+        type: String,
+
+    },
+    dtouni: {
+        type: String,
+
+    },
+    dcgpa: {
+        type: String,
+
+    },
+    dcity: {
+        type: String,
+
+    },
+    dproject: {
+        type: String,
+
+    },
+    dprofrom: {
+        type: String,
+
+    },
+
+    dproto: {
+        type: String,
+
+    },
+    dmentor: {
+        type: String,
+
+    },
+    ddesc: {
+        type: String,
+
     }
 
 })

@@ -1,32 +1,41 @@
 import React,{useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+
+import n from './Form';
 
 import Nav from './Nav';
 
 function Project(props){
+
+    const history = useHistory();
+    if (!props.id) {
+        history.push("/signin")
+    }
 
     const [prodetail, prosetDetail]= useState({
         pname:'',
         from:'',
         to:'',
         mentor:'',
-        disc:''
+        disc:'',
+        id:`${props.id}`
     });
 
-    const [newprodetail, newprosetDetail]= useState({
-        pname:'',
-        from:'',
-        to:'',
-        mentor:'',
-        disc:''
-    });
+    // const [newprodetail, newprosetDetail]= useState({
+    //     pname:'',
+    //     from:'',
+    //     to:'',
+    //     mentor:'',
+    //     disc:'',
+    //     id:`${props.id}`
+    // });
 
     function change(event){
         const name = event.target.name;
         const value = event.target.value;
 
 
-        newprosetDetail((prevalue) => {
+       prosetDetail((prevalue) => {
             return{
                 ...prevalue,
                 [name]:value,
@@ -35,11 +44,32 @@ function Project(props){
         });
     }
 
-    function submit(event){
-        event.preventDefault();
+ 
 
-        prosetDetail(newprodetail);
-        alert("Project Details Saved");
+    const submiteve = async (e)=>{
+
+        
+        e.preventDefault();
+
+// prosetDetail(newprodetail);
+alert("Project Details Saved");
+
+        const {pname,from,to, mentor, disc, id} = prodetail;
+
+        const res = await fetch("/project",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                dproject:pname,dprofrom:from,dproto:to ,dmentor:mentor, ddesc:disc, id:id
+            })
+        })
+
+        // const data = await res.json();
+
+        
+
     }
 
     props.setpro(prodetail);
@@ -53,9 +83,9 @@ function Project(props){
         <div className="form container col-md-5 shadow-lg p-3 mb-3 bg-body rounded">
 
         <h3 className="black shadow-lg p-3 mb-5 bg-body rounded">Project Details</h3>
-        <form className = "shadow-lg p-3 mb-3 bg-body rounded">
+        <form className = "shadow-lg p-3 mb-3 bg-body rounded" method="POST">
             <div className="mb-3">
-                <label className="form-label">Project Name</label>
+                <label className="form-label">Project Name {n} </label>
                 <input type="text" className="form-control" name="pname" onChange={change}/>
                
             </div>
@@ -85,8 +115,8 @@ function Project(props){
   {/* <label for="floatingTextarea2">Comments</label> */}
 </div>
             <div className="cent">
-            <button type="submit" onClick={submit} className="btn btn-success">Save</button>
-            <NavLink activeClassName="high" to="/detail"><button type="submit" className="btn btn-primary">Next</button></NavLink>
+            <button type="submit" onClick={submiteve} className="btn btn-success">Save</button>
+            <NavLink activeClassName="high" to="/portfolio"><button type="submit" className="btn btn-primary">Generate Portfolio</button></NavLink>
             
             </div>
         </form>

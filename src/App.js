@@ -7,6 +7,7 @@ import Project from './Project';
 import Details from './Details';
 import Form from './Form';
 import New from './New';
+import Portfolio from './Portfolio';
 
 
 function App() {
@@ -36,28 +37,32 @@ function App() {
         mentor:'',
         disc:''
   });
+  const[cid,setcid]=useState();
 
 
   return (
     <BrowserRouter>
       <Switch>
       <Route exact path="/about">
-      <About setpers={setpers}/>
+      <About setpers={setpers} id = {cid}/>
         </Route>
         <Route exact path="/education">
-        <Education setedu={setedu}/>
+        <Education setedu={setedu} id = {cid}/>
         </Route>
         <Route exact path="/project">
-        <Project setpro={setpro} />
+        <Project setpro={setpro} id = {cid}/>
         </Route>
         <Route exact path="/detail">
-        <Details  firstname={pers.firstname} lastname={pers.lastname} email={pers.email} mobile={pers.mobile} university={edu.university} from={edu.from} to={edu.to} cgpa={edu.cgpa} city={edu.city} pname={pro.pname} fromp={pro.from} top={pro.to} mentor={pro.mentor} disc={pro.disc}/>
+        <Details id = {cid} firstname={pers.firstname} lastname={pers.lastname} email={pers.email} mobile={pers.mobile} university={edu.university} from={edu.from} to={edu.to} cgpa={edu.cgpa} city={edu.city} pname={pro.pname} fromp={pro.from} top={pro.to} mentor={pro.mentor} disc={pro.disc}/>
         </Route>
         <Route exact path="/">
           <New />
         </Route>
         <Route exact path="/signin">
-          <Form />
+          <Form setcid={setcid}/>
+        </Route>
+        <Route exact path="/portfolio">
+          <Portfolio id={cid}/>
         </Route>
       </Switch>
     </BrowserRouter>

@@ -1,42 +1,84 @@
 import React, {useState} from 'react';
 import Nav from './Nav';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useHistory} from 'react-router-dom';
+
 
 function About(props){
+
+    const history = useHistory();
+    if(!props.id){
+        history.push("/signin")
+    }
+    
 
     const [detail, setDetail]= useState({
         firstname:'',
         lastname:'',
         email:'',
-        mobile:''
+        mobile:'',
+        id:`${props.id}`
     });
 
-    const [newdetail, newsetDetail]= useState({
-        firstname:'',
-        lastname:'',
-        email:'',
-        mobile:''
-    });
+    // const [newdetail, newsetDetail]= useState({
+    //     firstname:'',
+    //     lastname:'',
+    //     email:'',
+    //     mobile:'',
+    //     id:`${props.id}`
+    // });
 
     function InputEvent(event){
         const name = event.target.name;
         const value = event.target.value;
 
 
-        newsetDetail((prevalue) => {
-            return{
-                ...prevalue,
-                [name]:value,
-            }
+        // newsetDetail((prevalue) => {
+        //     return{
+        //         ...prevalue,
+        //         [name]:value,
+        //     }
                 
-        });
+        // });
+        setDetail((prevalue) => {
+                return{
+                    ...prevalue,
+                    [name]:value,
+                }
+                    
+            });
     }
 
-    function submit(event){
-        event.preventDefault();
+    // console.log(props.id);
 
-        setDetail(newdetail);
+    
+
+    const submiteve = async (e)=>{
+
+        
+        e.preventDefault();
+        // setDetail(newdetail);
+        // console.log(detail);
         alert("Personal Details Saved");
+
+        const {firstname, lastname, email, mobile, id} = detail;
+
+        const res = await fetch("/about",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                dfname:firstname, dlname:lastname, dmail:email, dmobile:mobile, id:id
+            })
+            // body: JSON.stringify(
+            //     detail
+            // )
+        })
+
+        const data = await res.json();
+
+        
+
     }
 
     props.setpers(detail);
@@ -52,7 +94,7 @@ function About(props){
         <div className="form container col-md-5 shadow-lg p-3 mb-5 bg-body rounded">
 
         <h3 className="black shadow-lg p-3 mb-5 bg-body rounded">Personal Details</h3>
-        <form className = "shadow-lg p-3 mb-5 bg-body rounded">
+        <form className = "shadow-lg p-3 mb-5 bg-body rounded" method="POST">
             <div className="mb-3">
                 <label className="form-label">Firstname</label>
                 <input type="text" className="form-control" name="firstname" onChange={InputEvent}/>
@@ -72,7 +114,7 @@ function About(props){
                 <input type="number" className="form-control" name='mobile' onChange={InputEvent}/>
             </div>
             <div className="cent">
-            <button type="submit" onClick={submit} className="btn btn-success">Save</button>
+            <button type="submit" onClick={submiteve} className="btn btn-success">Save</button>
             <NavLink to="/education"><button type="submit" className="btn btn-primary">Next</button></NavLink>
             </div>
         </form>

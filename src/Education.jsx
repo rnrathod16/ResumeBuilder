@@ -1,33 +1,40 @@
 import React, {useState} from 'react';
 
 import Nav from './Nav';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useHistory } from 'react-router-dom';
 
 
 function Education(props){
+
+    const history = useHistory();
+    if (!props.id) {
+        history.push("/signin")
+    }
 
     const [edudetail, edusetDetail]= useState({
         university:'',
         from:'',
         to:'',
         cgpa:'',
-        city:''
+        city:'',
+        id:`${props.id}`
     });
 
-    const [newedudetail, newedusetDetail]= useState({
-        university:'',
-        from:'',
-        to:'',
-        cgpa:'',
-        city:''
-    });
+    // const [newedudetail, newedusetDetail]= useState({
+    //     university:'',
+    //     from:'',
+    //     to:'',
+    //     cgpa:'',
+    //     city:'',
+    //     id:`${props.id}`
+    // });
 
     function inputEvent(event){
         const name = event.target.name;
         const value = event.target.value;
 
 
-        newedusetDetail((prevalue) => {
+       edusetDetail((prevalue) => {
             return{
                 ...prevalue,
                 [name]:value,
@@ -36,12 +43,32 @@ function Education(props){
         });
     }
 
-    function submit(event){
-        event.preventDefault();
+   
 
-        edusetDetail(newedudetail);
+    const submiteve = async (e)=>{
+
+        
+e.preventDefault();
+// edusetDetail(newedudetail);
         alert("Education Details Saved");
-    }
+
+const {university,from ,to, cgpa, city, id} = edudetail;
+
+const res = await fetch("/education",{
+    method:"POST",
+    headers:{
+        "Content-Type":"application/json"
+    },
+    body: JSON.stringify({
+        duniname:university,dfromuni:from,dtouni:to, dcgpa:cgpa, dcity:city, id:id
+    })
+})
+
+const data = await res.json();
+
+
+
+}
 
     props.setedu(edudetail);
 
@@ -54,7 +81,7 @@ function Education(props){
         <div className="form container col-md-5 shadow-lg p-3 mb-5 bg-body rounded">
 
         <h3 className="black shadow-lg p-3 mb-5 bg-body rounded">Education Details</h3>
-        <form className = "shadow-lg p-3 mb-5 bg-body rounded">
+        <form className = "shadow-lg p-3 mb-5 bg-body rounded" method="POST">
             <div className="mb-3">
                 <label className="form-label">University Name</label>
                 <input type="text" className="form-control" name="university" onChange={inputEvent}/>
@@ -84,7 +111,7 @@ function Education(props){
                 <input type="text" className="form-control" name="city" onChange={inputEvent}/>
             </div>
             <div className="cent">
-            <button type="submit" onClick={submit} className="btn btn-success">Save</button>
+            <button type="submit" onClick={submiteve} className="btn btn-success">Save</button>
             <NavLink to="/project"><button type="submit" className="btn btn-primary">Next</button></NavLink>
             </div>
         </form>

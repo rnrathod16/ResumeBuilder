@@ -3,7 +3,7 @@ import Nav from './Nav';
 
 function Details(props){
 
-    
+    console.log(props.id);
 
     return(
         <>

@@ -1,16 +1,22 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^5.13.3",
-    "moongoose": "0.0.5"
-  }
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1",
+        "express-flash": "0.0.2",
+        "express-session": "^1.17.2",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.13.3",
+        "moongoose": "0.0.5",
+        "passport": "^0.4.1",
+        "passport-local": "^1.0.0"
+    }
 }
