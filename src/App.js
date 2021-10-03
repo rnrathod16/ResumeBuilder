@@ -7,7 +7,7 @@ import Project from './Project';
 import Details from './Details';
 import Form from './Form';
 import New from './New';
-import Portfolio from './Portfolio';
+
 
 
 function App() {
@@ -60,9 +60,6 @@ function App() {
         </Route>
         <Route exact path="/signin">
           <Form setcid={setcid}/>
-        </Route>
-        <Route exact path="/portfolio">
-          <Portfolio id={cid}/>
         </Route>
       </Switch>
     </BrowserRouter>
