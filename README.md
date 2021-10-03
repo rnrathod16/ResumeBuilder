@@ -21,6 +21,6 @@ Hacktoberfest is an annual month-long celebration of open source organised every
 
 #### Steps
 
-- Clone the Project
+- Clone the Project https://github.com/rnrathod16/ResumeBuilder.git
 - Open Terminal and run ***npm install*** to install code dependency
 - And start working on the project 
