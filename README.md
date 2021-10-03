@@ -28,3 +28,6 @@ Hacktoberfest is an annual month-long celebration of open source organised every
 - Create config.env file under backend and write ***DB = < your temperory database >***
 - Create an issue under Issue section and maintainer will assign you the issue
 - And start working on the project 
+
+<p align="center"><img width=35% src="https://media2.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif?cid=ecf05e47pzi2rpig0vc8pjusra8hiai1b91zgiywvbubu9vu&rid=giphy.gif"></p>
+
