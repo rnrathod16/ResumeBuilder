@@ -1,8 +1,20 @@
 .button:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    color: rgb(160, 185, 15);
+
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 }
 
 .button {
     padding: 10px 24px;
     border-radius: 16px;
+    transition: all .5s ease;
+    color: #232931;
+    background: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    text-align: center;
+    font-size: 35px;
+    margin-left: 43%;
+    margin-top: 40px;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
 }
