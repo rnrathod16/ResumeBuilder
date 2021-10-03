@@ -103,6 +103,8 @@ function ForgotPassword(props){
                 </div>
             </div>
             <input onClick={(e) => submiteve(e, 'reset')} type="submit" className="bt" value="Verify" />
+            <Back />
+
         </>
     );
 
