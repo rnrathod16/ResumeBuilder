@@ -22,5 +22,9 @@ Hacktoberfest is an annual month-long celebration of open source organised every
 #### Steps
 
 - Clone the Project https://github.com/rnrathod16/ResumeBuilder.git
-- Open Terminal and run ***npm install*** to install code dependency
+- Change the directory to ResumeBuilder using ***cd ResumeBuilder***
+- Open Terminal and run ***npm install*** to install code dependency for Frontend
+- Then ***cd backend*** and run ***npm install*** to install code dependency for Backend
+- Create config.env file under backend and write ***DB = < your temperory database >***
+- Create an issue under Issue section and maintainer will assign you the issue
 - And start working on the project 
