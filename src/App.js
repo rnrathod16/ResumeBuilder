@@ -7,7 +7,7 @@ import Project from './Project';
 import Details from './Details';
 import Form from './Form';
 import New from './New';
-
+import ForgotPassword from './ForgotPassword';
 
 
 function App() {
@@ -60,6 +60,9 @@ function App() {
         </Route>
         <Route exact path="/signin">
           <Form setcid={setcid}/>
+        </Route>
+        <Route exact path="/forgot_password">
+          <ForgotPassword />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -48,6 +48,10 @@ body {
     width: 360px;
 }
 
+form.formContainer {
+    padding: 1rem 2rem 2rem !important;
+}
+
 .login-content img {
     height: 100px;
     margin-top: 20px;
@@ -56,8 +60,7 @@ body {
 .login-content h2 {
     margin: 15px 0;
     color: white;
-    text-transform: uppercase;
-    font-size: 2.9rem;
+    font-size: 16px;
 }
 
 .login-content .input-div {
@@ -67,6 +70,17 @@ body {
     margin: 4px 0;
     padding: 5px 0;
     border-bottom: 2px solid #d9d9d9;
+}
+
+.login-content .input-div > div > input {
+    font-size: 15px;
+    color: #708090;
+}
+
+.login-content .input-div > div > input::placeholder {
+    color: #c9c9c9;
+    font-size: 12px;
+    vertical-align: middle;
 }
 
 .login-content .input-div.one {
@@ -114,6 +128,10 @@ body {
     font-family: 'poppins', sans-serif;
 }
 
+.input-div:not(:first-child) {
+    margin-top: 0.4rem;
+}
+
 .input-div.pass {
     margin-bottom: 4px;
 }
@@ -127,13 +145,13 @@ body {
     border: none;
     background-image: linear-gradient(to right, #2999f5, #031bf1, #0011ff);
     background-size: 200%;
-    font-size: 1.2rem;
+    font-size: 15px;
     color: #fff;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
-    margin: 1rem 0;
+    margin: 2rem 0 1rem;
     cursor: pointer;
-    /* transition: .5s; */
+    transition: .5s;
 }
 
 .bt:hover {
@@ -142,6 +160,7 @@ body {
 
 .cnt {
     text-align: center;
+    font-weight: 600;
 }
 
 .wht {
@@ -150,6 +169,32 @@ body {
 
 .b {
     padding-top: 5px;
+}
+
+.regisFormIcon {
+    width: 15px;
+    height: 15px !important;
+    margin: 0 !important;
+}
+
+.fg-pass {
+    font-size: 12px;
+}
+
+.forgotPassImage {
+    background-color: #f5f5f5;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 1.5rem !important;
+}
+
+.forgotPassImage > img {
+    width: 50px;
+    height: 50px;
 }
 
 @media screen and (max-width: 1050px) {
