@@ -116,7 +116,7 @@ alert("Project Details Saved");
 </div>
             <div className="cent">
             <button type="submit" onClick={submiteve} className="btn btn-success">Save</button>
-            <NavLink activeClassName="high" to="/portfolio"><button type="submit" className="btn btn-primary">Generate Portfolio</button></NavLink>
+            <NavLink activeClassName="high" to="#"><button type="submit" className="btn btn-primary">Generate Resume</button></NavLink>
             
             </div>
         </form>
