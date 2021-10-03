@@ -96,12 +96,12 @@ function About(props){
         <h3 className="black shadow-lg p-3 mb-5 bg-body rounded">Personal Details</h3>
         <form className = "shadow-lg p-3 mb-5 bg-body rounded" method="POST">
             <div className="mb-3">
-                <label className="form-label">Firstname</label>
+                <label className="form-label">First Name</label>
                 <input type="text" className="form-control" name="firstname" onChange={InputEvent}/>
                
             </div>
             <div className="mb-3">
-                <label className="form-label">Lastname</label>
+                <label className="form-label">Last Name</label>
                 <input type="text" className="form-control" name='lastname' onChange={InputEvent}/>
             </div>
             <div className="mb-3">

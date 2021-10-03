@@ -17,8 +17,8 @@ function Details(props){
 
         <h3 className="black shadow-lg p-3 mb-4 bg-body rounded">Generated Details</h3>
         <div className="shadow-lg p-3 mb-2 bg-body rounded">
-        <h5>Firstname :- {props.firstname}</h5>
-        <h5>Lastname :- {props.lastname}</h5>
+        <h5>First Name :- {props.firstname}</h5>
+        <h5>Last Name :- {props.lastname}</h5>
 
         <h5>Email :- {props.email}</h5>
         <h5>Mobile :- {props.mobile}</h5>
