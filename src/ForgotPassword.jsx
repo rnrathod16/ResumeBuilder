@@ -6,6 +6,7 @@ import EnvelopeSVG from '../src/img/envelope.svg';
 import LockSVG from '../src/img/lock.svg';
 import ConfirmPassSVG from '../src/img/confirmPass.svg';
 import './Form.css';
+import Back from "./Back";
 
 function ForgotPassword(props){
 
@@ -61,6 +62,7 @@ function ForgotPassword(props){
                 </div>
             </div>
             <input onClick={(e) => submiteve(e, 'email')} type="submit" className="bt" value="Verify" />
+            <Back />
         </>
     );
 
