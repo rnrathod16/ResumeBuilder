@@ -5,6 +5,11 @@ Hacktoberfest is back this year!
 
 Hacktoberfest is an annual month-long celebration of open source organised every year by DIgital Ocean. Every participant who follows their set of rules and get 4 Pull Requests (PRs) merged will receive swags. For the past years, learners have been hacking throughout October in the open-source community, and this 8th year you can avail yourself the opportunity to partake and contribute to this ever-growing platform.
 
+### Note:
+Every Pull Request goes through a "Maturing Period" of two weeks, so do be patient during that duration and to make the most of your time, AVOID SPAMMY PRs!!
+
+For More related FAQs visit [here](https://hacktoberfest.digitalocean.com/faq)
+
 
 ## 💻Tech Stack
  
