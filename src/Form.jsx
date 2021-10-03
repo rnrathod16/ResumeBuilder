@@ -1,8 +1,10 @@
 import React,{useState} from 'react';
-import back from './img/1.png'
-import bg from './img/bg.svg'
-import avtar from './img/avtar.svg'
+import back from './img/1.png';
+import bg from './img/bg.svg';
+import avtar from './img/avtar.svg';
 import { NavLink, useHistory} from 'react-router-dom';
+import UserSVG from '../src/img/user.svg';
+import LockSVG from '../src/img/lock.svg';
 import './Form.css';
 
 function Form(props){
@@ -81,26 +83,29 @@ function Form(props){
                             <img src={bg} alt="bg" />
                         </div>
                         <div className="login-content" >
-                            <form method="POST" className="fo container-fluid col-md-9 shadow-lg p-3 mb-2 pt-2 bg-body rounded">
-                                <img src={avtar}  alt="Avatar" style={{marginTop:`45px`}}/>
-                                <h2 style={{color:`#031bf1`}}> Welcome </h2>
+                            <form method="POST" className="fo container-fluid col-md-9 shadow-lg p-3 mb-2 pt-2 bg-body rounded formContainer">
+                                <img src={avtar}  alt="Avatar"/>
+                                <h2 style={{color:`#3f3d56`}}> Welcome </h2>
                                 <div className="input-div one">
-                                    <div className="i" >
-                                        <i className="fas fa-user" > </i>
-                                    </div> <div className="div" >
+                                <div className="i">
+                                    <img src={UserSVG} alt="fullName" className="regisFormIcon" />
+                                </div>
+                                    <div className="div" >
 
                                         <input type="text" className="input" name="username" placeholder="Username" onChange={eventIn} />
                                     </div>
                                 </div>
                                 <div className="input-div pass" >
-                                    <div className="i" >
-                                        <i className="fas fa-lock" > </i>
-                                    </div> <div className="div" >
-
+                                <div className="i">
+                                    <img src={LockSVG} alt="password" className="regisFormIcon" />
+                                </div>
+                                    <div className="div" >
                                         <input type="password" className="input mb-4" name="password" placeholder="Password" onChange={eventIn}/>
                                     </div>
                                 </div>
-                                <a href="/" className="mt-3" style={{textDecoration:`none`}}> Forgot Password ? </a>
+                                <div className="mt-3 fg-pass">
+                                    <NavLink to="/forgot_password" className="cnt dw" style={{textDecoration:`none`}}>Forgot password ?</NavLink>
+                                </div>
                                 <input onClick={submiteve} type="submit" className="bt" value="Login" />
                                <NavLink to="/" className="cnt" style={{textDecoration:`none`, marginBottom:`40px`}}>SIGNUP</NavLink>
                                
