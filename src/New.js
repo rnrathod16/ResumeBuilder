@@ -1,11 +1,14 @@
 import React,{useState} from 'react';
 import './App.css';
-import back2 from './img/back2.png'
-import th from './img/th.svg'
-import avtar from './img/avtar.svg'
-import {NavLink, useHistory} from 'react-router-dom'
-
-
+import back2 from './img/back2.png';
+import th from './img/th.svg';
+import avtar from './img/avtar.svg';
+import {NavLink, useHistory} from 'react-router-dom';
+import UserSVG from '../src/img/user.svg';
+import EnvelopeSVG from '../src/img/envelope.svg';
+import CupSVG from '../src/img/cup.svg';
+import LockSVG from '../src/img/lock.svg';
+import ConfirmPassSVG from '../src/img/confirmPass.svg';
 
 function New(){
 
@@ -81,30 +84,29 @@ function New(){
         <img src={th} alt="bg"/>
     </div>
     <div className="login-content">
-        <form method="POST" className="container-fluid col-md-9 shadow-lg p-3 mb-2 pt-2 bg-body rounded">
+        <form method="POST" className="container-fluid col-md-9 shadow-lg p-3 mb-2 pt-2 bg-body rounded formContainer">
             <img src={avtar} alt="avtar"/>
-            <h2 style={{color:`#031bf1`}}>Registration</h2>
+            <h2 style={{color:`#3f3d56`}}>Registration</h2>
             <div className="input-div one">
                 <div className="i">
-                    <i className="fas fa-user"></i>
+                    <img src={UserSVG} alt="fullName" className="regisFormIcon" />
                 </div>
                 <div className="div">
-
-                    <input id="name" type="text" className="input " placeholder="Full Name" name="fname" onChange={inputEvent} value={fullName.fname}  />
+                    <input id="name" type="text" className="input " placeholder="Full name" name="fname" onChange={inputEvent} value={fullName.fname}  />
                 </div>
             </div>
-            <div className="input-div one">
+            <div className="input-div">
                 <div className="i">
-                    <i className="fas fa-envelope"></i>
+                    <img src={EnvelopeSVG} alt="email" className="regisFormIcon" />
                 </div>
                 <div className="div">
-
+            
                     <input type="email" className="input " placeholder="Email" name="email" onChange={inputEvent} value={fullName.email} />
                 </div>
             </div>
-            <div className="input-div one">
+            <div className="input-div">
                 <div className="i">
-                    <i className="fas fa-coffee"></i>
+                    <img src={CupSVG} alt="userName" className="regisFormIcon" />
                 </div>
                 <div className="div">
 
@@ -113,7 +115,7 @@ function New(){
             </div>
             <div className="input-div pass">
                 <div className="i">
-                    <i className="fas fa-lock"></i>
+                    <img src={LockSVG} alt="password" className="regisFormIcon" />
                 </div>
                 <div className="div">
 
@@ -122,16 +124,16 @@ function New(){
             </div>
             <div className="input-div pass">
                 <div className="i">
-                    <i className="fas fa-check"></i>
+                    <img src={ConfirmPassSVG} alt="confirmPassword" className="regisFormIcon" />
                 </div>
                 <div className="div">
 
-                    <input type="password" className="input b" name="cpass" placeholder="Conform Password" onChange={inputEvent}/>
+                    <input type="password" className="input b" name="cpass" placeholder="Confirm password" onChange={inputEvent}/>
                 </div>
             </div>
             
             <input type="submit" onClick={postdata} className="bt" value="SIGN UP"/>
-            <div style={{ color: `rgb(129, 129, 129)`}}>Already have an Account ? <NavLink to="/signin" className="cnt dw" style={{textDecoration:`none`}}>LOGIN</NavLink></div>
+            <div style={{ color: `rgb(129, 129, 129)`, fontSize: '12px' }}>Already have an Account ? <NavLink to="/signin" className="cnt dw" style={{textDecoration:`none`}}>Login</NavLink></div>
         </form>
     </div>
 </div>
