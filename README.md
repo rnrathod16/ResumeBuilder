@@ -26,13 +26,36 @@ For More related FAQs visit [here](https://hacktoberfest.digitalocean.com/faq)
 
 #### Steps
 
-- Clone the Project https://github.com/rnrathod16/ResumeBuilder.git
-- Change the directory to ResumeBuilder using ***cd ResumeBuilder***
-- Open Terminal and run ***npm install*** to install code dependency for Frontend
-- Then ***cd backend*** and run ***npm install*** to install code dependency for Backend
-- Create config.env file under backend and write ***DB = < your temperory database >***
-- Create an issue under Issue section and maintainer will assign you the issue
-- And start working on the project 
+
+1. Clone the Project 
+```
+git clone https://github.com/rnrathod16/ResumeBuilder.git
+```
+2. Change the directory to ResumeBuilder
+```
+cd ResumeBuilder
+```
+3. Open Terminal and write below command to install code dependency for Frontend
+```
+npm install
+```
+4. Then write this 2 commands to install code dependency for Backend
+```
+cd backend
+```
+```
+npm install
+```
+5. Create config.env file under backend and write ***DB = < your temperory database >***
+```
+touch config.env
+```
+6. Create an issue under Issue section and maintainer will assign you the issue
+
+7. And start working on the project 
 
 <p align="center"><img width=35% src="https://media2.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif?cid=ecf05e47pzi2rpig0vc8pjusra8hiai1b91zgiywvbubu9vu&rid=giphy.gif"></p>
+
+
+<p align="center" style="font-size:50px"><b>Happy Hacking 💻</b></p>
 
