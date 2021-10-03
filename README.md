@@ -26,6 +26,7 @@ For More related FAQs visit [here](https://hacktoberfest.digitalocean.com/faq)
 
 #### Steps
 
+
 1. Clone the Project 
 ```
 git clone https://github.com/rnrathod16/ResumeBuilder.git
@@ -57,3 +58,4 @@ touch config.env
 
 
 <p align="center" style="font-size:50px"><b>Happy Hacking 💻</b></p>
+
