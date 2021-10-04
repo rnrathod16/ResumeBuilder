@@ -3,7 +3,7 @@ const express = require('express');
 const route = express.Router();
 
 
-require("../db/con");
+require("../db/connection");
 const User = require("../model/userSchema");
 
 // route.get('/', (req, res) => {
