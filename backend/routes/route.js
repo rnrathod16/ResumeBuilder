@@ -1,19 +1,9 @@
 const express = require('express');
-
 const route = express.Router();
-
-
 require("../db/connection");
 const User = require("../model/userSchema");
 
-// route.get('/', (req, res) => {
-//     res.send("Hello World");
-// })
-
-
-
-route.post('/', async(req, res) => {
-
+route.post('/', async (req, res) => {
     const { name, email, username, password, cpassword } = req.body;
 
     if (!name || !email || !username || !password || !cpassword) {
@@ -38,32 +28,23 @@ route.post('/', async(req, res) => {
             }
 
         }
-
     } catch (error) {
         console.log(error);
     }
-
-
 })
 
 
-route.post('/sign', async(req, res) => {
+route.post('/sign', async (req, res) => {
 
     const { username, password } = req.body;
     try {
-
-
         if (!username || !password) {
             res.json({ error: "Input fields are empty" })
         }
-
         const valid = await User.findOne({ username: username, password: password })
-
         if (valid) {
             const u = await User.findOne({ username: username });
-            // console.log(u._id);
             res.json({ message: u._id });
-
 
         } else {
             res.status(422).json({ error: "Invalid cred" })
@@ -75,12 +56,9 @@ route.post('/sign', async(req, res) => {
 })
 let x;
 
-route.post('/about', async(req, res) => {
-
+route.post('/about', async (req, res) => {
     const { dfname, dlname, dmail, dmobile, id } = req.body;
     try {
-
-
         if (!dfname || !dlname || !dmail || !dmobile) {
             res.json({ error: "Input fields are empty" })
         }
@@ -90,12 +68,7 @@ route.post('/about', async(req, res) => {
         const val = await User.findOne({ _id: id })
 
         if (val) {
-
-
-            const n = await User.updateOne({ _id: id }, { $set: { dfname: dfname, dlname: dlname, dmail: dmail, dmobile: dmobile } });
-
-
-
+            await User.updateOne({ _id: id }, { $set: { dfname: dfname, dlname: dlname, dmail: dmail, dmobile: dmobile } });
         } else {
             res.status(422).json({ error: "Invalid cred" })
         }
@@ -105,12 +78,10 @@ route.post('/about', async(req, res) => {
     }
 })
 
-route.post('/education', async(req, res) => {
+route.post('/education', async (req, res) => {
 
     const { duniname, dfromuni, dtouni, dcgpa, dcity, id } = req.body;
     try {
-
-
         if (!duniname || !dcgpa || !dcity) {
             res.json({ error: "Input fields are empty" })
         }
@@ -118,12 +89,7 @@ route.post('/education', async(req, res) => {
         const val = await User.findOne({ _id: id })
 
         if (val) {
-
-
-            const n = await User.updateOne({ _id: id }, { $set: { duniname: duniname, dfromuni: dfromuni, dtouni: dtouni, dcgpa: dcgpa, dcity: dcity } });
-
-
-
+            await User.updateOne({ _id: id }, { $set: { duniname: duniname, dfromuni: dfromuni, dtouni: dtouni, dcgpa: dcgpa, dcity: dcity } });
         } else {
             res.status(422).json({ error: "Invalid cred" })
         }
@@ -133,12 +99,10 @@ route.post('/education', async(req, res) => {
     }
 })
 
-route.post('/project', async(req, res) => {
+route.post('/project', async (req, res) => {
 
     const { dproject, dprofrom, dproto, dmentor, ddesc, id } = req.body;
     try {
-
-
         if (!dproject || !dmentor || !ddesc) {
             res.json({ error: "Input fields are empty" })
         }
@@ -146,12 +110,7 @@ route.post('/project', async(req, res) => {
         const val = await User.findOne({ _id: id })
 
         if (val) {
-
-
-            const n = await User.updateOne({ _id: id }, { $set: { dproject: dproject, dprofrom: dprofrom, dproto: dproto, dmentor: dmentor, ddesc: ddesc } });
-
-
-
+            await User.updateOne({ _id: id }, { $set: { dproject: dproject, dprofrom: dprofrom, dproto: dproto, dmentor: dmentor, ddesc: ddesc } });
         } else {
             res.status(422).json({ error: "Invalid cred" })
         }
@@ -164,10 +123,7 @@ route.post('/project', async(req, res) => {
 
 
 
-route.get("/portfolio/:id", async(req, res) => {
-
-    // const id = req.params.id;
-
+route.get("/portfolio/:id", async (req, res) => {
     try {
         const data = await User.findById(req.params.id);
         res.send(data);
@@ -176,36 +132,6 @@ route.get("/portfolio/:id", async(req, res) => {
         console.log(err);
         res.send(err);
     }
-
-    // console.log(id);
-    // console.log(data);
-
-
 })
-
-
-
-
-//     try {
-
-//         const val = await User.findOne({ _id: id })
-//         console.log(val);
-
-//         if (val) {
-
-
-//             // const n = await User.updateOne({ _id: id }, { $set: { dproject: dproject, dmentor: dmentor, ddesc: ddesc } });
-
-
-
-//         } else {
-//             res.status(422).json({ error: "Invalid cred" })
-//         }
-
-//     } catch (error) {
-//         console.log(error);
-//     }
-// })
-
 
 module.exports = route;
