@@ -30,6 +30,7 @@ route.post('/', async (req, res) => {
         }
     } catch (error) {
         console.log(error);
+        res.status(500).send(error);
     }
 })
 
@@ -52,6 +53,7 @@ route.post('/sign', async (req, res) => {
 
     } catch (error) {
         console.log(error);
+        res.status(500).send(error);
     }
 })
 let x;
@@ -75,6 +77,7 @@ route.post('/about', async (req, res) => {
 
     } catch (error) {
         console.log(error);
+        res.status(500).send(error);
     }
 })
 
@@ -96,6 +99,7 @@ route.post('/education', async (req, res) => {
 
     } catch (error) {
         console.log(error);
+        res.status(500).send(error);
     }
 })
 
@@ -117,6 +121,7 @@ route.post('/project', async (req, res) => {
 
     } catch (error) {
         console.log(error);
+        res.status(500).send(error);
     }
 })
 
@@ -130,7 +135,7 @@ route.get("/portfolio/:id", async (req, res) => {
 
     } catch (err) {
         console.log(err);
-        res.send(err);
+        res.send(err).status(500);
     }
 })
 
